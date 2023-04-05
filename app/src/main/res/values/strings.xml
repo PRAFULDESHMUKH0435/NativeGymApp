@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Power Zone</string>
+
+
+    <string-array name="gym_plans">
+        <item>Monthly</item>
+        <item>Half Quaterly</item>
+        <item>Quaterly</item>
+        <item>Yearly</item>
+    </string-array>
+
+
 </resources>
+
+
