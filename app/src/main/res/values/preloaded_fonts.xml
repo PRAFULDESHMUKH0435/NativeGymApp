@@ -4,5 +4,8 @@
         <item>@font/aclonica</item>
         <item>@font/akronim</item>
         <item>@font/audiowide</item>
+        <item>@font/roboto</item>
+        <item>@font/roboto_bold</item>
+        <item>@font/roboto_bold_italic</item>
     </array>
 </resources>
