@@ -11,6 +11,6 @@ public class ContactUs extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_contact_us );
 
-        getSupportActionBar().hide();
+
     }
 }
