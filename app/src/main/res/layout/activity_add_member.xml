@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFEB3B"
-    tools:context=".MainActivity">
+    tools:context=".AddMember">
 
     <TextView
         android:id="@+id/signuptitle"
@@ -20,6 +20,19 @@
         android:textColor="@color/black"
         android:textSize="35dp"
         android:textStyle="bold" />
+
+
+    <ScrollView
+        android:layout_below="@id/signuptitle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
 
     <EditText
         android:id="@+id/username"
@@ -74,73 +87,100 @@
         android:textColorHint="@color/black" />
 
 
-    <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/plans"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/phonenumber"
+        android:layout_below="@+id/phonenumber"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:orientation="horizontal">
+        android:drawableLeft="@drawable/baseline_person_24"
+        android:textColorHint="@color/black"
+        android:background="@drawable/background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:hint="Select Plan">
 
-        <EditText
-            android:id="@+id/chooseplan"
-            android:layout_width="wrap_content"
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/phonenumber"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/background"
-            android:drawableLeft="@drawable/baseline_person_24"
-            android:drawablePadding="20dp"
-            android:hint="Choose Plan"
-            android:inputType="textPassword"
-            android:padding="20dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/black" />
+            android:id="@+id/auto_completetext1"
+            android:paddingLeft="16dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textStyle="bold"
+            android:inputType="none"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+
+
+    <LinearLayout
+        android:layout_below="@+id/plans"
+        android:id="@+id/choose_imgll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plans">
+
+        <TextView
+            android:id="@+id/choose_imagetxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/background"
-            app:layout_constraintLeft_toLeftOf="@id/chooseplan"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:text="Upload Member Image Here"
+            android:textSize="@dimen/_15sdp"/>
 
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="none"
-                android:text="Select"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/baseline_add_a_photo_24"
+            android:padding="8dp"
+            android:text="Choose Image"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
-    <!--    <com.google.android.material.button.MaterialButton-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/signupbtn"-->
-<!--        android:text="REGISTER"-->
-<!--        android:textSize="25dp"-->
-<!--        android:layout_below="@id/repassword"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:backgroundTint="@color/design_default_color_secondary"-->
-<!--        android:layout_margin="15dp"/>-->
+
+    <Button
+        android:layout_below="@id/choose_imgll"
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/white"
+        android:outlineSpotShadowColor="#E91E63"
+        android:shadowDx="@integer/material_motion_duration_long_2"
+        android:shadowDy="@integer/material_motion_duration_long_2"
+        android:text="Add Member Data"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
 
 
-
-
-
-
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
