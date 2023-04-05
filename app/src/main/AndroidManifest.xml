@@ -16,19 +16,19 @@
             android:exported="false" />
         <activity
             android:name=".ShowMembers"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".AddMember"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ContactUs"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".LoginPage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Splash_Screen"
             android:exported="true">
