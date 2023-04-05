@@ -1,227 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
-    android:orientation="vertical"
     android:background="@color/backgroundcolour">
 
     <TextView
         android:id="@+id/logo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:text="Register Your Gym"
         android:textColor="@color/black"
-        android:textSize="36sp"
+        android:textSize="@dimen/_36sdp"
         android:textStyle="bold"
-        android:layout_marginTop="15dp"
-        app:layout_constraintBottom_toTopOf="@id/inputgymname"
+        app:layout_constraintBottom_toTopOf="@id/scroll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13" />
 
-    <EditText
-        android:id="@+id/inputgymname"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/background"
-        android:drawableLeft="@drawable/baseline_add_business_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Enter Your Gym Name Here"
-        android:inputType="textPersonName"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
-
-    <EditText
-        android:id="@+id/inputgymaddress"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/background"
-        android:drawableLeft="@drawable/baseline_location_on_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Enter Your Gym Address Here"
-        android:inputType="textPostalAddress"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputgymname" />
-
-    <EditText
-        android:id="@+id/inputEmail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/background"
-        android:drawableLeft="@drawable/baseline_alternate_email_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Enter Your Valid Email Address"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/inputgymname"
-        app:layout_constraintStart_toStartOf="@+id/inputgymname"
-        app:layout_constraintTop_toBottomOf="@+id/inputgymaddress" />
-
-    <EditText
-        android:id="@+id/inputphone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/background"
-        android:drawableLeft="@drawable/baseline_phonelink_ring_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Enter Your Phone Number"
-        android:inputType="phone"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
-
-    <EditText
-        android:id="@+id/inputgymownername"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/background"
-        android:drawableLeft="@drawable/baseline_account_circle_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Enter Gym Owner Name Here"
-        android:inputType="textPersonName"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/inputEmail"
-        app:layout_constraintStart_toStartOf="@+id/inputEmail"
-        app:layout_constraintTop_toBottomOf="@+id/inputphone" />
-
-    <EditText
-        android:id="@+id/inputConformPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/background"
-        android:drawableLeft="@drawable/baseline_remove_red_eye_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Enter Strong Password"
-        android:inputType="textPersonName"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/inputgymownername"
-        app:layout_constraintStart_toStartOf="@+id/inputgymownername"
-        app:layout_constraintTop_toBottomOf="@+id/inputgymownername" />
-
-
-    <LinearLayout
-        android:id="@+id/choose_imgll"
+    <ScrollView
+        android:layout_below="@+id/logo"
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:orientation="horizontal"
-        android:background="@drawable/background"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputConformPassword">
+        app:layout_constraintTop_toBottomOf="@+id/logo">
 
-        <TextView
-            android:id="@+id/choose_imagetxt"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:padding="8dp"
-            android:text="Upload Your Gym Image"/>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:drawableLeft="@drawable/baseline_add_a_photo_24"
-            android:padding="8dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:text="Choose Image" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/white"
-        android:text="Register"
-        android:outlineSpotShadowColor="#E91E63"
-        android:shadowDx="@integer/material_motion_duration_long_2"
-        android:shadowDy="@integer/material_motion_duration_long_2"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/inputConformPassword"
-        app:layout_constraintStart_toStartOf="@+id/inputConformPassword"
-        app:layout_constraintTop_toBottomOf="@+id/choose_imgll" />
-
-<!--    <TextView-->
-<!--        android:id="@+id/alreadyHaveAccount"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:text="Proceed To Login"-->
-<!--        android:textColor="@color/black"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/btnRegister"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/btnRegister"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />-->
+            android:orientation="vertical">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/inputgymname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/background"
+                android:drawableLeft="@drawable/baseline_add_business_24"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Enter Your Gym Name Here"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+            <EditText
+                android:id="@+id/inputgymaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/background"
+                android:drawableLeft="@drawable/baseline_location_on_24"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Enter Your Gym Address Here"
+                android:inputType="textPostalAddress"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputgymname" />
+
+            <EditText
+                android:id="@+id/inputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/background"
+                android:drawableLeft="@drawable/baseline_alternate_email_24"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Enter Your Valid Email Address"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/inputgymname"
+                app:layout_constraintStart_toStartOf="@+id/inputgymname"
+                app:layout_constraintTop_toBottomOf="@+id/inputgymaddress" />
+
+            <EditText
+                android:id="@+id/inputphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/background"
+                android:drawableLeft="@drawable/baseline_phonelink_ring_24"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Enter Your Phone Number"
+                android:inputType="phone"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+
+            <EditText
+                android:id="@+id/inputgymownername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/background"
+                android:drawableLeft="@drawable/baseline_account_circle_24"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Enter Gym Owner Name Here"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/inputEmail"
+                app:layout_constraintStart_toStartOf="@+id/inputEmail"
+                app:layout_constraintTop_toBottomOf="@+id/inputphone" />
+
+            <EditText
+                android:id="@+id/inputConformPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/background"
+                android:drawableLeft="@drawable/baseline_remove_red_eye_24"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Enter Strong Password"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/inputgymownername"
+                app:layout_constraintStart_toStartOf="@+id/inputgymownername"
+                app:layout_constraintTop_toBottomOf="@+id/inputgymownername" />
+
+
+            <LinearLayout
+                android:id="@+id/choose_imgll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/background"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputConformPassword">
+
+                <TextView
+                    android:id="@+id/choose_imagetxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="Upload Your Gym Image"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/baseline_add_a_photo_24"
+                    android:padding="8dp"
+                    android:text="Choose Image"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:backgroundTint="@color/white"
+                android:outlineSpotShadowColor="#E91E63"
+                android:shadowDx="@integer/material_motion_duration_long_2"
+                android:shadowDy="@integer/material_motion_duration_long_2"
+                android:text="Register"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/inputConformPassword"
+                app:layout_constraintStart_toStartOf="@+id/inputConformPassword"
+                app:layout_constraintTop_toBottomOf="@+id/choose_imgll" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

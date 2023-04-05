@@ -25,13 +25,13 @@
             android:text="The Power Zone"
             android:textColor="#00ACC1"
             android:textAlignment="center"
-            android:textSize="30sp"
+            android:textSize="@dimen/_30sdp"
             android:textStyle="bold|italic" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view1"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="@dimen/_320sdp"
         app:lottie_rawRes="@raw/splash1"
         android:layout_margin="12dp"
         app:lottie_loop="true"
@@ -41,7 +41,7 @@
         <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view2"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="@dimen/_300sdp"
         app:lottie_rawRes="@raw/splash2"
         android:layout_margin="12dp"
         app:lottie_loop="true"

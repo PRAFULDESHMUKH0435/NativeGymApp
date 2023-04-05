@@ -87,7 +87,7 @@
             android:id="@+id/create_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="@dimen/_14sdp"
             android:textColor="#000"
             android:layout_margin="8dp"
             android:textStyle="bold"
