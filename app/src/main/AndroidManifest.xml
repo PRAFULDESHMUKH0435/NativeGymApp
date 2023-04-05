@@ -12,6 +12,9 @@
         android:theme="@style/Theme.DazzlingDreams"
         tools:targetApi="31">
         <activity
+            android:name=".AddAttendence"
+            android:exported="false" />
+        <activity
             android:name=".ShowMembers"
             android:exported="false" />
         <activity
