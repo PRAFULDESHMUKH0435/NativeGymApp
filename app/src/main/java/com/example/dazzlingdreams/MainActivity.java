@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.snackbar.Snackbar;
 
 import rezwan.pstu.cse12.youtubeonlinestatus.recievers.NetworkChangeReceiver;

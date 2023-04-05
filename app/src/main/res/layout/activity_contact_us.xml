@@ -1,39 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/purple_500"
     tools:context=".ContactUs">
 
     <LinearLayout
         android:id="@+id/linear_ll"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         android:layout_margin="12dp"
-        android:background="@color/backgroundcolour"
-        android:orientation="vertical">
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="12dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <EditText
-            android:id="@+id/addfeedbackid"
+            android:id="@+id/addmessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
             android:background="@drawable/background"
+            android:backgroundTint="#FFFFFF"
             android:ems="10"
             android:gravity="start|top"
             android:hint="Enter Message To All Your Gym Members and Send Them Just By Hitting That Send Button... "
             android:inputType="textMultiLine"
             android:lines="4"
-            android:textStyle="bold"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btnSendfeedback"
+            android:id="@+id/sendmessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
@@ -48,15 +53,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/linear_ll"
-        android:layout_marginBottom="15dp"
-        android:orientation="vertical">
+        android:layout_margin="15dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <LinearLayout
             android:id="@+id/bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_margin="8dp"
             android:background="@drawable/background"
             android:backgroundTint="@color/backgroundcolour"
             android:orientation="horizontal">
@@ -91,6 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/bottom"
+            android:layout_margin="8dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/background"
             android:backgroundTint="@color/backgroundcolour"
@@ -102,4 +115,4 @@
             android:textStyle="bold|italic" />
 
     </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
