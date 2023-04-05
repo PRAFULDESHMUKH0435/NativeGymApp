@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/backgroundcolour"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context="com.PowerZone.dazzlingdreams.MainActivity">
 
 
     <androidx.cardview.widget.CardView
@@ -29,7 +29,7 @@
                 app:iss_error_image="@drawable/error"
                 app:iss_auto_cycle="true"
                 app:iss_corner_radius="10"
-                app:iss_period="1000"
+                app:iss_period="2000"
                 app:iss_delay="0"/>
         </LinearLayout>
 
@@ -81,7 +81,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Student Login "
+                    android:text="Add UserData "
                     android:textAlignment="center"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -121,7 +121,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Security Login"
+                    android:text="Show UserData "
                     android:textAlignment="center"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -161,7 +161,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Admin Login "
+                    android:text="Add Attendence "
                     android:textAlignment="center"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -191,6 +191,7 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:gravity="center"
                 android:orientation="vertical">
+
 
                 <ImageView
                     android:layout_width="130dp"

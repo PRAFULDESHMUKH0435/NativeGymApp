@@ -1,9 +1,11 @@
-package com.example.dazzlingdreams;
+package com.PowerZone.dazzlingdreams;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.dazzlingdreams.R;
 
 public class Splash_Screen extends AppCompatActivity {
 
@@ -16,7 +18,7 @@ public class Splash_Screen extends AppCompatActivity {
         Thread thread = new Thread(){
             public void run(){
                 try {
-                  sleep(8000);
+                  sleep(3000);
                 }catch (Exception e){
                     e.printStackTrace();
                 }

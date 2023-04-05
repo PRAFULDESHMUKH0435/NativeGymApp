@@ -1,4 +1,4 @@
-package com.example.dazzlingdreams;
+package com.PowerZone.dazzlingdreams;
 
 import android.content.Context;
 

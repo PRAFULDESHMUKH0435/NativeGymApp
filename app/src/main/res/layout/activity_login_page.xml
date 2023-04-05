@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F9E005"
-    tools:context=".LoginPage">
+    tools:context="com.PowerZone.dazzlingdreams.LoginPage">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view2"
