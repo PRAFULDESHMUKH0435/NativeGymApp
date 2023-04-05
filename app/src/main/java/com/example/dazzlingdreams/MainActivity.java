@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.google.android.material.snackbar.Snackbar;
 
+import rezwan.pstu.cse12.youtubeonlinestatus.recievers.NetworkChangeReceiver;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageSlider imageSlider;
@@ -25,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
+
+        NetworkChangeReceiver r = new NetworkChangeReceiver( this);
+        r.build();
+
 
         imageSlider = findViewById(R.id.image_slider);
 
@@ -63,8 +69,6 @@ public class MainActivity extends AppCompatActivity {
         } );
 
     }
-
-
 
 
 }
