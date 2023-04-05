@@ -65,7 +65,7 @@
             app:cardElevation="8dp">
 
             <LinearLayout
-                android:id="@+id/student_login"
+                android:id="@+id/add_member"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -81,7 +81,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Student Login "
+                    android:text="Add Member "
                     android:textAlignment="center"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -105,7 +105,7 @@
             app:cardElevation="8dp">
 
             <LinearLayout
-                android:id="@+id/warden_login"
+                android:id="@+id/show_members"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -121,7 +121,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Security Login"
+                    android:text="Show Members "
                     android:textAlignment="center"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -145,7 +145,7 @@
             app:cardElevation="8dp">
 
             <LinearLayout
-                android:id="@+id/admin_login"
+                android:id="@+id/add_attendence"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -161,7 +161,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Admin Login "
+                    android:text="Add Attendence "
                     android:textAlignment="center"
                     android:textStyle="bold" />
             </LinearLayout>
