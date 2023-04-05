@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "724859390364",
+    "project_id": "powerzone-b957c",
+    "storage_bucket": "powerzone-b957c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724859390364:android:779f241a9c7095a69aa059",
+        "android_client_info": {
+          "package_name": "com.PowerZone.dazzlingdreams"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724859390364-dsu0v92g4ftnn85u0ngvbblopd7bg8ej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlA-cZVDdVwILzgGqbf2gHQMmdp5-EF5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724859390364-dsu0v92g4ftnn85u0ngvbblopd7bg8ej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
