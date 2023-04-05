@@ -40,18 +40,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         AddAttendence  = findViewById(R.id.add_attendence);
-        AddMember.setOnClickListener( new View.OnClickListener( ) {
+        AddAttendence.setOnClickListener( new View.OnClickListener( ) {
             @Override
             public void onClick (View v) {
-                startActivity( new Intent( MainActivity.this, com.example.dazzlingdreams.AddMember.class ) );
+                startActivity( new Intent( MainActivity.this, AddAttendence.class ) );
             }
         } );
 
         ContactUs  = findViewById(R.id.contact_us);
-        AddMember.setOnClickListener( new View.OnClickListener( ) {
+        ContactUs.setOnClickListener( new View.OnClickListener( ) {
             @Override
             public void onClick (View v) {
-                startActivity( new Intent( MainActivity.this, com.example.dazzlingdreams.AddMember.class ) );
+                startActivity( new Intent( MainActivity.this, ContactUs.class ) );
             }
         } );
 
