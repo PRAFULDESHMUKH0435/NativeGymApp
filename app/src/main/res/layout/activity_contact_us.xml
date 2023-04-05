@@ -5,58 +5,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundcolour"
     tools:context=".ContactUs">
 
     <LinearLayout
         android:id="@+id/linear_ll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"></LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/bottom"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@color/backgroundcolour"
-        android:orientation="horizontal">
+        android:layout_margin="12dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+
+        <EditText
+            android:id="@+id/addfeedbackid"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:padding="5dp"
+            android:backgroundTint="#FFFFFF"
+            android:background="@drawable/background"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Enter Message To All Your Gym Members and Send Them Just By Hitting That Send Button... "
+            android:inputType="textMultiLine"
+            android:lines="4"
             android:textStyle="bold"
-            android:text="Designed &amp; Developed By" />
+            android:padding="8dp" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btnSendfeedback"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:padding="5dp"
-            android:textStyle="bold|italic"
-            android:textColor="#E91E63"
-            android:drawablePadding="5dp"
-            android:drawableStart="@drawable/baseline_account_circle_24"
-            android:text="Praful Deshmukh" />
+            android:layout_margin="12dp"
+            android:backgroundTint="#000"
+            android:text="Send Message"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bottom"
-        android:layout_margin="12dp"
-        android:background="@color/backgroundcolour"
-        android:drawablePadding="8dp"
-        android:fontFamily="@font/aclonica"
-        android:padding="5dp"
-        android:text="Believe in your dreams, a better tomorrow is waiting for you!"
-        android:textColor="#4CAF50"
-        android:textStyle="bold|italic" />
+        android:layout_below="@id/linear_ll"
+        android:layout_margin="15dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/background"
+            android:backgroundTint="@color/backgroundcolour"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:text="Designed &amp; Developed By"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/baseline_account_circle_24"
+                android:drawablePadding="5dp"
+                android:padding="5dp"
+                android:text="Praful N  Deshmukh"
+                android:textColor="#E91E63"
+                android:textStyle="bold|italic" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bottom"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/background"
+            android:backgroundTint="@color/backgroundcolour"
+            android:drawablePadding="8dp"
+            android:fontFamily="@font/aclonica"
+            android:padding="5dp"
+            android:text="Believe in your dreams, a better tomorrow is waiting for you!"
+            android:textColor="#4CAF50"
+            android:textStyle="bold|italic" />
+
+    </LinearLayout>
 </RelativeLayout>
