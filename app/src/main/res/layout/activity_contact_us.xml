@@ -111,7 +111,7 @@
             android:fontFamily="@font/aclonica"
             android:padding="5dp"
             android:text="Believe in your dreams, a better tomorrow is waiting for you!"
-            android:textColor="#4CAF50"
+            android:textColor="#E91E63"
             android:textStyle="bold|italic" />
 
     </LinearLayout>
