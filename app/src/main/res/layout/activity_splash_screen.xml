@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F9E005"
-    tools:context="com.PowerZone.dazzlingdreams.Splash_Screen">
+    tools:context=".Splash_Screen">
 
     <LinearLayout
         android:orientation="vertical"

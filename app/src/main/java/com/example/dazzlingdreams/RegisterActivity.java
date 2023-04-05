@@ -1,10 +1,8 @@
-package com.PowerZone.dazzlingdreams;
+package com.example.dazzlingdreams;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
-import com.example.dazzlingdreams.R;
 
 public class RegisterActivity extends AppCompatActivity {
 
