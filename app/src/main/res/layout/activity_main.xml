@@ -29,7 +29,7 @@
                 app:iss_error_image="@drawable/error"
                 app:iss_auto_cycle="true"
                 app:iss_corner_radius="10"
-                app:iss_period="1000"
+                app:iss_period="1200"
                 app:iss_delay="0"/>
         </LinearLayout>
 
