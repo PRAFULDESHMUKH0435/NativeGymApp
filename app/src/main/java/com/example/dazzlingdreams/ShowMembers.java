@@ -9,6 +9,8 @@ public class ShowMembers extends AppCompatActivity {
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_show_members );
+        setContentView( R.layout.single_row );
+
+
     }
 }
