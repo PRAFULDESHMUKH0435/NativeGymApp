@@ -10,7 +10,7 @@ public class ShowMembers extends AppCompatActivity {
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.single_row );
-
+        getSupportActionBar().setTitle("Show Members");
 
     }
 }
