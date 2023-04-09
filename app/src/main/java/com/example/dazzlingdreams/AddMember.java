@@ -27,7 +27,7 @@ public class AddMember extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_add_member );
 
-        getSupportActionBar().setTitle("Add Member");
+        getSupportActionBar().setTitle("Add Members");
 
         autoCompleteTextView = findViewById(R.id.auto_completetext1);
         adapteritems = new ArrayAdapter<>( this, R.layout.list_item, plans );
