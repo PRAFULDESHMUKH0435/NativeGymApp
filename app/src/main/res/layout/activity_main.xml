@@ -8,7 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/backgroundcolour"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context="com.PowerZone.dazzlingdreams.MainActivity">
 
 
     <androidx.cardview.widget.CardView

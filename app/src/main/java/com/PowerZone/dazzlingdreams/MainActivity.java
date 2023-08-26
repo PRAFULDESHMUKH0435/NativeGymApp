@@ -1,26 +1,18 @@
-package com.example.dazzlingdreams;
+package com.PowerZone.dazzlingdreams;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.dazzlingdreams.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +20,6 @@ import java.util.List;
 import rezwan.pstu.cse12.youtubeonlinestatus.recievers.NetworkChangeReceiver;
 
 public class MainActivity extends AppCompatActivity {
-
-
 
     ImageSlider imageSlider;
     LinearLayout AddMember,ShowMember,AddAttendence,ContactUs;

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/purple_500"
-    tools:context=".ContactUs">
+    tools:context="com.PowerZone.dazzlingdreams.ContactUs">
 
     <LinearLayout
         android:id="@+id/linear_ll"

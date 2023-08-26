@@ -1,4 +1,4 @@
-package com.example.dazzlingdreams;
+package com.PowerZone.dazzlingdreams;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 
+import com.example.dazzlingdreams.R;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
 import java.util.Calendar;

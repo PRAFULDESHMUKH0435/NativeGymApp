@@ -1,8 +1,10 @@
-package com.example.dazzlingdreams;
+package com.PowerZone.dazzlingdreams;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.dazzlingdreams.R;
 
 public class ContactUs extends AppCompatActivity {
 
