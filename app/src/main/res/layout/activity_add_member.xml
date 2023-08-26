@@ -219,7 +219,6 @@
 
 
     <Button
-        android:layout_below="@id/choose_imgll"
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -232,6 +231,7 @@
         android:shadowDy="@integer/material_motion_duration_long_2"
         android:text="Add Member Data"
         android:textColor="@color/black"
+        android:layout_below="@id/choose_imgll"
         android:textStyle="bold"/>
 
 
