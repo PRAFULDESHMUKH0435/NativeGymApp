@@ -1,23 +1,35 @@
 package com.PowerZone.dazzlingdreams;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
+
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dazzlingdreams.R;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class AddMember extends AppCompatActivity {
@@ -25,24 +37,29 @@ public class AddMember extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextView;
     private Button pickDateBtn, EndDateBtn,ImgButton , RegisterUser;
     String []plans = {"Monthly","Quarterly","Half Yearly","Yearly"};
-    String plan ="", start_date="" ,end_date="";
-    boolean isloading = false;
+    String plan ="", start_date="" ,end_date="",UserName="",UserWeight="",UserMobile="",gymname="";
+
     ArrayAdapter<String> adapteritems;
+    private FirebaseFirestore db;
+
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
+
+
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_add_member );
 
         getSupportActionBar().setTitle("Add Members");
-
-
-        HelperServices  helperService = new HelperServices();
+        db = FirebaseFirestore.getInstance();
 
         ///////////
-        String username = findViewById( R.id.username).toString();
-        String email = findViewById( R.id.email).toString();
-        String mobno = findViewById( R.id.phonenumber).toString();
+        EditText username = findViewById( R.id.username);
+        EditText userweight = findViewById( R.id.weight);
+        EditText usermobno = findViewById( R.id.phonenumber);
         //////////
+        gymname = "FitnessStar";
+
 
         autoCompleteTextView = findViewById(R.id.auto_completetext1);
         adapteritems = new ArrayAdapter<>( this, R.layout.list_item, plans );
@@ -104,7 +121,6 @@ public class AddMember extends AppCompatActivity {
             }
         } );
 
-
         ImgButton = findViewById(R.id.chooseimg_button);
         ImgButton.setOnClickListener( new View.OnClickListener( ) {
             @Override
@@ -122,18 +138,102 @@ public class AddMember extends AppCompatActivity {
         RegisterUser.setOnClickListener( new View.OnClickListener( ) {
             @Override
             public void onClick (View v) {
-                if (!(username.isEmpty() || email.isEmpty() || mobno.isEmpty() || plan.isEmpty() || start_date.isEmpty() || end_date.isEmpty())){
-                        helperService.SaveDataToFireStoreDatabase("FitnessStar",username,email,mobno,plan,start_date,end_date,"65");
-                    Toast.makeText( AddMember.this, "Method Hitted Sucessfully", Toast.LENGTH_SHORT ).show( );
-                }else {
-                    Toast.makeText( AddMember.this, "All Fields Are Required", Toast.LENGTH_SHORT ).show( );
-                }
+                 UserName= username.getText().toString().trim();
+                 UserWeight= userweight.getText().toString().trim();
+                 UserMobile= usermobno.getText().toString().trim();
+                 gymname = "FitnessStar";
+                 if (TextUtils.isEmpty(UserName)) {
+                     username.setError("Required");
+                 }else if (TextUtils.isEmpty(UserWeight)) {
+                     userweight.setError("Required");
+                 }else if (TextUtils.isEmpty(UserMobile)) {
+                     usermobno.setError("Required");
+                 }else if (usermobno.length()!=10){
+                     Toast.makeText( AddMember.this, "Mobile Number Should Be 10 Digit Long", Toast.LENGTH_SHORT ).show( );
+                 }
+                 else if (plan.isEmpty() || start_date.isEmpty() || end_date.isEmpty()) {
+                     Toast.makeText( AddMember.this, "Complete All Fields", Toast.LENGTH_SHORT ).show( );
+                 }else {
+                     ShowAlertDialog("Are You Sure You Want To Add "+UserName +" To Gym Data");
+                 }
+
             }
         } );
-
     }
 
+    void ShowAlertDialog(String msg){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder( this);
+        alertDialogBuilder.setTitle("Confirmation");
+        alertDialogBuilder.setCancelable(false);
+        alertDialogBuilder.setMessage(msg);
+        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+//                ADDING USER TO GYM DATA
+                Map<String, Object> user_object = new HashMap<>();
+                    user_object.put("UserName",UserName);
+                    user_object.put("UserWeight",UserWeight);
+                    user_object.put("UserMobile",UserMobile);
+                    user_object.put("UserPlan",plan);
+                    user_object.put("UserStartDate",start_date);
+                    user_object.put("UserEndDate",end_date);
 
+                Task<Void> userPath = db.collection( "GymData").
+                        document(gymname)
+                        .collection("ClientData").document(UserName)
+                        .set(user_object)
+                        .addOnSuccessListener(documentReference -> {
+                            Toast.makeText( AddMember.this, "Data Added Successfully", Toast.LENGTH_SHORT ).show( );
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText( AddMember.this, ""+e.getMessage(), Toast.LENGTH_LONG ).show( );
+                        });
+
+                ///////////////////////////
+            }
+        });
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do something when the "Cancel" button is clicked
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+    // Create and show the alert dialog
+
+
+//    private FirebaseFirestore db;
+//    db = FirebaseFirestore.getInstance();
+//    Map<String, Object> user_object = new HashMap<>();
+//        user_object.put("UserName",username);
+//        user_object.put("UserEmail",useremail);
+//        user_object.put("UserMobile",usermobile);
+//        user_object.put("UserPlan",userplan);
+//        user_object.put("UserStartDate",start_date);
+//        user_object.put("UserEndDate",end_date);
+//        user_object.put("UserWeight",userweight);
+//
+//    Task<Void> userPath = db.collection( "GymData").
+//            document( GymName)
+//            .collection("ClientData").document(username)
+//            .set(user_object)
+//            .addOnSuccessListener(documentReference -> {
+//                result=true;
+//            })
+//            .addOnFailureListener(e -> {
+//                Log.d( TAG, "SaveDataToFireStoreDatabase: "+e.toString().toUpperCase() );
+//            });
+//
+
+
+//     Toast.makeText( AddMember.this, "Data Added Successfully" , Toast.LENGTH_SHORT ).show( );
+//    Intent intent = new Intent(AddMember.this, MainActivity.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//    startActivity(intent);
 
 
 }

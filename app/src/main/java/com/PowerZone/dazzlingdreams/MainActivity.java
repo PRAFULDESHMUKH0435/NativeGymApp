@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.dazzlingdreams.R;
 
 import java.util.ArrayList;
 import java.util.List;
