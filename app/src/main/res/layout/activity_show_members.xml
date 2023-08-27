@@ -13,6 +13,6 @@
         android:layout_height="wrap_content"
         tools:listitem="@layout/single_row"
         tools:itemCount="3"
-        />
+    />
 
 </androidx.recyclerview.widget.RecyclerView>

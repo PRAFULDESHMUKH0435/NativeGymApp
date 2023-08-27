@@ -19,6 +19,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
@@ -37,9 +39,9 @@ public class AddMember extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextView;
     private Button pickDateBtn, EndDateBtn,ImgButton , RegisterUser;
     String []plans = {"Monthly","Quarterly","Half Yearly","Yearly"};
-    String plan ="", start_date="" ,end_date="",UserName="",UserWeight="",UserMobile="",gymname="";
-
+    String plan ="", start_date="" ,end_date="",UserName="",UserWeight="",UserMobile="",Total_amount ="",Paid_amount="",gymname="";
     ArrayAdapter<String> adapteritems;
+
     private FirebaseFirestore db;
     private FirebaseStorage storage = FirebaseStorage.getInstance();
 
@@ -56,8 +58,12 @@ public class AddMember extends AppCompatActivity {
         EditText username = findViewById( R.id.username);
         EditText userweight = findViewById( R.id.weight);
         EditText usermobno = findViewById( R.id.phonenumber);
+        EditText total_Amount = findViewById( R.id.total_amount);
+        EditText paid_Amount = findViewById( R.id.paid_amount);
         gymname = "FitnessStar";
         //////////
+
+
 
         autoCompleteTextView = findViewById(R.id.auto_completetext1);
         adapteritems = new ArrayAdapter<>( this, R.layout.list_item, plans );
@@ -139,6 +145,9 @@ public class AddMember extends AppCompatActivity {
                  UserName= username.getText().toString().trim();
                  UserWeight= userweight.getText().toString().trim();
                  UserMobile= usermobno.getText().toString().trim();
+                 Total_amount = total_Amount.getText().toString().trim();
+                 Paid_amount = paid_Amount.getText().toString().trim();
+
                  gymname = "FitnessStar";
                  if (TextUtils.isEmpty(UserName)) {
                      username.setError("Required");
@@ -151,7 +160,15 @@ public class AddMember extends AppCompatActivity {
                  }
                  else if (plan.isEmpty() || start_date.isEmpty() || end_date.isEmpty()) {
                      Toast.makeText( AddMember.this, "Complete All Fields", Toast.LENGTH_SHORT ).show( );
-                 }else {
+                 }else if (TextUtils.isEmpty(Total_amount)) {
+                     total_Amount.setError("Required");
+                 }else if (TextUtils.isEmpty(Paid_amount)) {
+                     paid_Amount.setError("Required");
+                 }
+                 else if (Integer.parseInt(Paid_amount)>Integer.parseInt(Total_amount)){
+                     Toast.makeText( AddMember.this, "Paid Amount Can't Be Greater Than Total Amount", Toast.LENGTH_SHORT ).show( );
+                 }
+                 else {
                      ShowAlertDialog("Are You Sure You Want To Add "+UserName +" To Gym Data");
                  }
 
@@ -167,7 +184,12 @@ public class AddMember extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-//                ADDING USER TO GYM DATA
+
+                ProgressBar progressBar = findViewById(R.id.progressBar);
+                progressBar.setVisibility(View.VISIBLE);
+
+
+//              ADDING USER TO GYM DATA
                 Map<String, Object> user_object = new HashMap<>();
                     user_object.put("UserName",UserName);
                     user_object.put("UserWeight",UserWeight);
@@ -175,6 +197,9 @@ public class AddMember extends AppCompatActivity {
                     user_object.put("UserPlan",plan);
                     user_object.put("UserStartDate",start_date);
                     user_object.put("UserEndDate",end_date);
+                    user_object.put("TotalAmount",Total_amount);
+                    user_object.put("PaidAmount",Paid_amount);
+
 
                 Task<Void> userPath = db.collection( "GymData").
                         document(gymname)
@@ -182,12 +207,14 @@ public class AddMember extends AppCompatActivity {
                         .set(user_object)
                         .addOnSuccessListener(documentReference -> {
                             Toast.makeText( AddMember.this, "Data Added Successfully", Toast.LENGTH_SHORT ).show( );
+                            progressBar.setVisibility(View.INVISIBLE);
                             Intent intent = new Intent(AddMember.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         })
                         .addOnFailureListener(e -> {
                             Toast.makeText( AddMember.this, ""+e.getMessage(), Toast.LENGTH_LONG ).show( );
+                            progressBar.setVisibility(View.INVISIBLE);
                         });
             }
         });

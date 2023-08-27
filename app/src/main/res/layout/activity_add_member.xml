@@ -7,10 +7,28 @@
     android:background="#FFEB3B"
     tools:context="com.PowerZone.dazzlingdreams.AddMember">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="invisible"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -212,6 +230,7 @@
 
 
                     <EditText
+                        android:id="@+id/total_amount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -228,6 +247,7 @@
                         android:textColorHint="@color/black" />
 
                     <EditText
+                        android:id="@+id/paid_amount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
