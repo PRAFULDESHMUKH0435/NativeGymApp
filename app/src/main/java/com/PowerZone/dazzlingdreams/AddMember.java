@@ -41,25 +41,23 @@ public class AddMember extends AppCompatActivity {
 
     ArrayAdapter<String> adapteritems;
     private FirebaseFirestore db;
-
     private FirebaseStorage storage = FirebaseStorage.getInstance();
-
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_add_member );
 
-        getSupportActionBar().setTitle("Add Members");
+        getSupportActionBar().setTitle("Register Member");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         db = FirebaseFirestore.getInstance();
 
         ///////////
         EditText username = findViewById( R.id.username);
         EditText userweight = findViewById( R.id.weight);
         EditText usermobno = findViewById( R.id.phonenumber);
-        //////////
         gymname = "FitnessStar";
-
+        //////////
 
         autoCompleteTextView = findViewById(R.id.auto_completetext1);
         adapteritems = new ArrayAdapter<>( this, R.layout.list_item, plans );
@@ -184,12 +182,13 @@ public class AddMember extends AppCompatActivity {
                         .set(user_object)
                         .addOnSuccessListener(documentReference -> {
                             Toast.makeText( AddMember.this, "Data Added Successfully", Toast.LENGTH_SHORT ).show( );
+                            Intent intent = new Intent(AddMember.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
                         })
                         .addOnFailureListener(e -> {
                             Toast.makeText( AddMember.this, ""+e.getMessage(), Toast.LENGTH_LONG ).show( );
                         });
-
-                ///////////////////////////
             }
         });
         alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -204,36 +203,6 @@ public class AddMember extends AppCompatActivity {
         alertDialog.show();
     }
     // Create and show the alert dialog
-
-
-//    private FirebaseFirestore db;
-//    db = FirebaseFirestore.getInstance();
-//    Map<String, Object> user_object = new HashMap<>();
-//        user_object.put("UserName",username);
-//        user_object.put("UserEmail",useremail);
-//        user_object.put("UserMobile",usermobile);
-//        user_object.put("UserPlan",userplan);
-//        user_object.put("UserStartDate",start_date);
-//        user_object.put("UserEndDate",end_date);
-//        user_object.put("UserWeight",userweight);
-//
-//    Task<Void> userPath = db.collection( "GymData").
-//            document( GymName)
-//            .collection("ClientData").document(username)
-//            .set(user_object)
-//            .addOnSuccessListener(documentReference -> {
-//                result=true;
-//            })
-//            .addOnFailureListener(e -> {
-//                Log.d( TAG, "SaveDataToFireStoreDatabase: "+e.toString().toUpperCase() );
-//            });
-//
-
-
-//     Toast.makeText( AddMember.this, "Data Added Successfully" , Toast.LENGTH_SHORT ).show( );
-//    Intent intent = new Intent(AddMember.this, MainActivity.class);
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//    startActivity(intent);
 
 
 }
