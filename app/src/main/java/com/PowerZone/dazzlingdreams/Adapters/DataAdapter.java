@@ -29,11 +29,15 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.myviewholder> 
     public void onBindViewHolder (@NonNull DataAdapter.myviewholder holder, int position) {
         holder.UserName.setText(datalist.get(position).getUserName());
         holder.UserMobile.setText(datalist.get(position).getUserMobile());
-        holder.Start_Date.setText( (CharSequence) datalist.get( position).getStart_Date());
-        holder.End_Date.setText( (CharSequence) datalist.get( position).getEnd_Date());
-//        holder.Start_Month.setText(datalist.get(position).getUserName());
-//        holder.End_Month.setText(datalist.get(position).getUserName());
+        String[] st_date = datalist.get( position).getUserStartDate().split( "-");
+        String[] en_date = datalist.get( position).getUserEndDate().split( "-");
+        holder.Start_Date.setText(st_date[0]);
+        holder.End_Date.setText(en_date[0]);
+        holder.Start_Month.setText(st_date[1]);
+        holder.End_Month.setText(en_date[1]);
         holder.userplan.setText(datalist.get(position).getUserplan());
+        holder.bal.setText("Bal :"+datalist.get(position).getBalanceAmount());
+
 
     }
 
@@ -44,7 +48,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.myviewholder> 
 
     public class myviewholder extends RecyclerView.ViewHolder {
 
-        TextView UserName,UserMobile,Start_Date,End_Date,Start_Month,End_Month,userplan;
+        TextView UserName,UserMobile,Start_Date,End_Date,Start_Month,End_Month,userplan,bal;
         public myviewholder (@NonNull View itemView) {
             super( itemView );
             UserName =itemView.findViewById(R.id.username);
@@ -54,6 +58,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.myviewholder> 
             Start_Month =itemView.findViewById(R.id.startmonth);
             End_Month =itemView.findViewById(R.id.endmonth);
             userplan =itemView.findViewById(R.id.plan);
+            bal = itemView.findViewById(R.id.balance);
         }
     }
 }

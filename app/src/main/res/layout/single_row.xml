@@ -161,15 +161,16 @@
 
 
                     <TextView
+                        android:id="@+id/balance"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="5dp"
-                        android:textColor="@color/black"
+                        android:textColor="#FB0909"
                         android:textStyle="bold"
                         android:textAlignment="center"
-                        android:text="Package" />
+                        android:text="Balance" />
 
                     <TextView
                         android:id="@+id/plan"
@@ -179,6 +180,7 @@
                         android:fontFamily="@font/roboto"
                         android:layout_weight="1"
                         android:padding="5dp"
+                        android:textColor="#20EA08"
                         android:textStyle="bold"
                         android:textAlignment="center"
                         android:layout_height="wrap_content" />

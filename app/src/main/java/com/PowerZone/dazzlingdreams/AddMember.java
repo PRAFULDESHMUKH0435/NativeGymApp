@@ -53,7 +53,7 @@ public class AddMember extends AppCompatActivity {
         setContentView( R.layout.activity_add_member );
 
         getSupportActionBar().setTitle("Register Member");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         db = FirebaseFirestore.getInstance();
 
         ///////////
@@ -92,9 +92,23 @@ public class AddMember extends AppCompatActivity {
                             @Override
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
+//                                int change = 1;
+//                                if (plan=="") change=0;
+//                                if (plan=="Monthly"){
+//                                    change=1;
+//                                }else if (plan=="Quarterly"){
+//                                    change=3;
+//                                }else if(plan=="Half Yearly") {
+//                                    change=6;
+//                                }else {
+//                                    change=12;
+//                                }
                                 String start_month = getMonthName(monthOfYear+1);
+                                String end_month = getMonthName(monthOfYear+1+3);
+
                                 start_date = dayOfMonth+"-"+(start_month)+"-"+year;
                                 pickDateBtn.setText(dayOfMonth + "-" + (start_month) + "-" + year);
+                                EndDateBtn.setText(dayOfMonth + "-" + (end_month) + "-" + year);
                             }
                         },
 
@@ -203,6 +217,10 @@ public class AddMember extends AppCompatActivity {
                     user_object.put("UserEndDate",end_date);
                     user_object.put("TotalAmount",Total_amount);
                     user_object.put("PaidAmount",Paid_amount);
+                    int balance = Integer.parseInt(Total_amount)-Integer.parseInt(Paid_amount);
+                    user_object.put("BalanceAmount",balance);
+
+
 
 
                 Task<Void> userPath = db.collection( "GymData").

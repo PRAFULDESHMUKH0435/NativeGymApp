@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.PowerZone.dazzlingdreams.Adapters.DataAdapter;
 import com.PowerZone.dazzlingdreams.Models.DataModel;
@@ -37,6 +39,8 @@ public class ShowMembers extends AppCompatActivity {
         datalist=new ArrayList<>();
         adapter=new DataAdapter(datalist);
         recview.setAdapter(adapter);
+        ProgressBar progressBar = findViewById( R.id.progressBar2);
+        progressBar.setVisibility( View.VISIBLE);
 
         db=FirebaseFirestore.getInstance();
         db.collection( "GymData").
@@ -53,6 +57,7 @@ public class ShowMembers extends AppCompatActivity {
                             datalist.add(obj);
                         }
                         adapter.notifyDataSetChanged();
+                        progressBar.setVisibility( View.INVISIBLE);
                     }
                 });
     }
