@@ -29,8 +29,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 
+import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -90,8 +92,9 @@ public class AddMember extends AppCompatActivity {
                             @Override
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
-                                 start_date = dayOfMonth+"-"+(monthOfYear+1)+"-"+year;
-                                pickDateBtn.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                                String start_month = getMonthName(monthOfYear+1);
+                                start_date = dayOfMonth+"-"+(start_month)+"-"+year;
+                                pickDateBtn.setText(dayOfMonth + "-" + (start_month) + "-" + year);
                             }
                         },
 
@@ -115,8 +118,9 @@ public class AddMember extends AppCompatActivity {
                             @Override
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
-                                 end_date = dayOfMonth+"-"+(monthOfYear+1)+"-"+year;
-                                EndDateBtn.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                                String end_month = getMonthName(monthOfYear+1);
+                                end_date = dayOfMonth+"-"+(end_month)+"-"+year;
+                                EndDateBtn.setText(dayOfMonth + "-" + (end_month) + "-" + year);
                             }
                         },
 
@@ -231,5 +235,8 @@ public class AddMember extends AppCompatActivity {
     }
     // Create and show the alert dialog
 
-
+    public static String getMonthName(int monthNumber) {
+        String[] monthNames = new DateFormatSymbols( Locale.getDefault()).getMonths();
+        return monthNames[monthNumber - 1];
+    }
 }
