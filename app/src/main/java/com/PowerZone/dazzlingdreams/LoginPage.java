@@ -29,13 +29,13 @@ public class LoginPage extends AppCompatActivity {
 
         Objects.requireNonNull( getSupportActionBar( ) ).setTitle( "Login Page");
 
-        createaccount = findViewById(R.id.create_one);
-        createaccount.setOnClickListener( new View.OnClickListener( ) {
-            @Override
-            public void onClick (View v) {
-                startActivity( new Intent(LoginPage.this,RegisterActivity.class) );
-            }
-        } );
+//        createaccount = findViewById(R.id.create_one);
+//        createaccount.setOnClickListener( new View.OnClickListener( ) {
+//            @Override
+//            public void onClick (View v) {
+//                startActivity( new Intent(LoginPage.this,RegisterActivity.class) );
+//            }
+//        } );
 
 
         Loginbtn = findViewById(R.id.login);

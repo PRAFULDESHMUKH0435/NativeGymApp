@@ -1,6 +1,5 @@
 package com.PowerZone.dazzlingdreams;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +19,6 @@ import android.widget.DatePicker;
 
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
@@ -35,12 +33,11 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-
 public class AddMember extends AppCompatActivity {
 
     AutoCompleteTextView autoCompleteTextView;
     private Button pickDateBtn, EndDateBtn,ImgButton , RegisterUser;
-    String []plans = {"Monthly","Quarterly","Half Yearly","Yearly"};
+    String []plans = {"Monthly","Monthly (Cardio +Strength)","Quarterly","Quarterly (Cardio +Strength)","Half Yearly","Half Yearly (Cardio +Strength)","Yearly","Yearly (Cardio +Strength)"};
     String plan ="", start_date="" ,end_date="",UserName="",UserWeight="",UserMobile="",Total_amount ="",Paid_amount="",gymname="";
     ArrayAdapter<String> adapteritems;
 
@@ -104,11 +101,8 @@ public class AddMember extends AppCompatActivity {
 //                                    change=12;
 //                                }
                                 String start_month = getMonthName(monthOfYear+1);
-                                String end_month = getMonthName(monthOfYear+1+3);
-
                                 start_date = dayOfMonth+"-"+(start_month)+"-"+year;
                                 pickDateBtn.setText(dayOfMonth + "-" + (start_month) + "-" + year);
-                                EndDateBtn.setText(dayOfMonth + "-" + (end_month) + "-" + year);
                             }
                         },
 
@@ -218,7 +212,7 @@ public class AddMember extends AppCompatActivity {
                     user_object.put("TotalAmount",Total_amount);
                     user_object.put("PaidAmount",Paid_amount);
                     int balance = Integer.parseInt(Total_amount)-Integer.parseInt(Paid_amount);
-                    user_object.put("BalanceAmount",balance);
+                    user_object.put("BalanceAmount",String.valueOf(balance));
 
 
 

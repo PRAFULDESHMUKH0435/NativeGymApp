@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--have to use dsp to arrange items-->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +8,6 @@
     android:background="@color/backgroundcolour"
     android:orientation="vertical"
     tools:context="com.PowerZone.dazzlingdreams.MainActivity">
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/slider"
@@ -27,11 +25,11 @@
                 android:id="@+id/image_slider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:iss_error_image="@drawable/error"
                 app:iss_auto_cycle="true"
                 app:iss_corner_radius="10"
-                app:iss_period="1200"
-                app:iss_delay="0"/>
+                app:iss_delay="0"
+                app:iss_error_image="@drawable/error"
+                app:iss_period="1200" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -152,7 +150,6 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:gravity="center"
                 android:orientation="vertical">
-
 
                 <ImageView
                     android:layout_width="130dp"

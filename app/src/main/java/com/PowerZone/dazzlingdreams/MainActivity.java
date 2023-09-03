@@ -1,21 +1,17 @@
 package com.PowerZone.dazzlingdreams;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.Toolbar;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
-
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import rezwan.pstu.cse12.youtubeonlinestatus.recievers.NetworkChangeReceiver;
 
 public class MainActivity extends AppCompatActivity {

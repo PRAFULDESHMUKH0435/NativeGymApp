@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -15,29 +16,32 @@
         android:theme="@style/Theme.DazzlingDreams"
         tools:targetApi="31">
         <activity
-            android:name="com.PowerZone.dazzlingdreams.AddAttendence"
-            android:parentActivityName=".MainActivity"
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddAttendence"
+            android:exported="true"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ShowMembers"
+            android:exported="true"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddMember"
+            android:exported="true"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContactUs"
+            android:exported="true"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".RegisterActivity"
             android:exported="true" />
         <activity
-            android:name="com.PowerZone.dazzlingdreams.ShowMembers"
-            android:parentActivityName=".MainActivity"
+            android:name=".LoginPage"
             android:exported="true" />
         <activity
-            android:name="com.PowerZone.dazzlingdreams.AddMember"
-            android:parentActivityName=".MainActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.PowerZone.dazzlingdreams.ContactUs"
-            android:parentActivityName=".MainActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.PowerZone.dazzlingdreams.RegisterActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.PowerZone.dazzlingdreams.LoginPage"
-            android:exported="true" />
-        <activity
-            android:name="com.PowerZone.dazzlingdreams.Splash_Screen"
+            android:name=".Splash_Screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +50,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.PowerZone.dazzlingdreams.MainActivity"
+            android:name=".MainActivity"
             android:exported="true" />
 
         <meta-data

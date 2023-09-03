@@ -1,11 +1,14 @@
 package com.PowerZone.dazzlingdreams.Adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.PowerZone.dazzlingdreams.DetailActivity;
 import com.PowerZone.dazzlingdreams.Models.DataModel;
 import com.PowerZone.dazzlingdreams.R;
 import java.util.ArrayList;
@@ -37,6 +40,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.myviewholder> 
         holder.End_Month.setText(en_date[1]);
         holder.userplan.setText(datalist.get(position).getUserplan());
         holder.bal.setText("Bal :"+datalist.get(position).getBalanceAmount());
+
+
 
 
     }
