@@ -89,17 +89,7 @@ public class AddMember extends AppCompatActivity {
                             @Override
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
-//                                int change = 1;
-//                                if (plan=="") change=0;
-//                                if (plan=="Monthly"){
-//                                    change=1;
-//                                }else if (plan=="Quarterly"){
-//                                    change=3;
-//                                }else if(plan=="Half Yearly") {
-//                                    change=6;
-//                                }else {
-//                                    change=12;
-//                                }
+
                                 String start_month = getMonthName(monthOfYear+1);
                                 start_date = dayOfMonth+"-"+(start_month)+"-"+year;
                                 pickDateBtn.setText(dayOfMonth + "-" + (start_month) + "-" + year);
