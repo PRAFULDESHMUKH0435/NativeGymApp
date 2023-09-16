@@ -1,24 +1,32 @@
 package com.PowerZone.dazzlingdreams;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.PowerZone.dazzlingdreams.Adapters.DataAdapter;
 import com.PowerZone.dazzlingdreams.Models.DataModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +42,6 @@ public class ShowMembers extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_show_members );
         getSupportActionBar().setTitle("Show Members");
-
 
         recview=(RecyclerView)findViewById(R.id.recview);
         recview.setLayoutManager(new LinearLayoutManager( this));
@@ -62,52 +69,60 @@ public class ShowMembers extends AppCompatActivity {
                         progressBar.setVisibility( View.INVISIBLE);
                     }
                 });
-    }
 
 
 
-    ///////////////////////////////////////////////
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.searchmenu,menu);
 
-        MenuItem item=menu.findItem( R.id.search);
-
-        SearchView searchView=(SearchView)item.getActionView();
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        ///////////////////////////////////////////////////////
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        EditText searchEditText = findViewById(R.id.searchEditText);
+        searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String s) {
-                processsearch(s);
-                return false;
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // No action needed here
             }
 
             @Override
-            public boolean onQueryTextChange(String s) {
-                processsearch(s);
-                return false;
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String searchText = charSequence.toString().trim();
+                searchFirestore(searchText);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // No action needed here
             }
         });
-
-        return super.onCreateOptionsMenu(menu);
     }
 
+    private void searchFirestore(String searchText) {
+            CollectionReference collectionRef = db.collection("GymData").
+                     document("FitnessStar")
+                    .collection("ClientData");
+            Query query = collectionRef.whereEqualTo("Ganesh Sir", searchText);
 
+            query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()) {
+                        List<DataModel> searchResults = new ArrayList<>();
+                        searchResults.clear();
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            DataModel data = document.toObject(DataModel.class);
+                            searchResults.add(data);
+                        }
 
-    private void processsearch(String s)
-    {
-//        FirebaseRecyclerOptions<DataModel> options =
-//                new FirebaseRecyclerOptions.Builder<model>()
-//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("students").orderByChild("course").startAt(s).endAt(s+"\uf8ff"), model.class)
-//                        .build();
-//
-//        adapter=new DataAdapter(options);
-//        adapter.startListening();
-//        recview.setAdapter(adapter);
-
+                        // Update your RecyclerView adapter with searchResults
+                        adapter.notifyDataSetChanged();
+                        adapter = new DataAdapter(datalist);
+                        adapter.notifyDataSetChanged();
+                        adapter.updateData(searchResults);
+                    } else {
+                        Toast.makeText(ShowMembers.this, "Error", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
     }
-
 
 }

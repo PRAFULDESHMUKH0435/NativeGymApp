@@ -28,6 +28,7 @@ public class AddInfo extends AppCompatActivity {
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_add_info );
+        getSupportActionBar().setTitle("Add Member Enquiry");
 
         db = FirebaseFirestore.getInstance();
 
@@ -42,43 +43,40 @@ public class AddInfo extends AppCompatActivity {
         user_btn.setOnClickListener( new View.OnClickListener( ) {
             @Override
             public void onClick (View v) {
-                if (name.isEmpty()){
+                if (user_name.getText().toString().isEmpty()){
                     user_name.setError("Required");
-                }else if (mobile.length( ) != 10){
+                }else if (user_mobno.getText().toString().length()!=10){
                     user_mobno.setError("Required");
                     Toast.makeText( AddInfo.this, "Mobile Number Should Be 10 Digit Long", Toast.LENGTH_SHORT ).show( );
                 }else {
-                    senddatatobackend(name,mobile);
+                    senddatatobackend(user_name.getText().toString().trim(),user_mobno.getText().toString().trim());
                 }
             }
         } );
-
-
     }
 
-    private void senddatatobackend (String name, String mobile) {
-
+    private void senddatatobackend (String name,String mobile) {
         Map<String, Object> enquiry_object = new HashMap<>();
         enquiry_object.put("UserName",name);
         enquiry_object.put("UserMobile",mobile);
         String gymname = "FitnessStar";
-        ProgressBar progressBar = findViewById( R.id.progressBar);
-        progressBar.setVisibility(View.VISIBLE);
+//        ProgressBar progressBar = findViewById( R.id.progressBar);
+//        progressBar.setVisibility(View.VISIBLE);
 
         Task<Void> enquiryPath = db.collection( "GymData").
-                document(gymname)
+                document("FitnessStar")
                 .collection("Enquiry").document(name)
                 .set(enquiry_object)
                 .addOnSuccessListener(documentReference -> {
                     Toast.makeText( AddInfo.this, "Enquiry Added Successfully", Toast.LENGTH_SHORT ).show( );
-                    progressBar.setVisibility(View.INVISIBLE);
+//                    progressBar.setVisibility(View.INVISIBLE);
                     Intent intent = new Intent( AddInfo.this, MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText( AddInfo.this, ""+e.getMessage(), Toast.LENGTH_LONG ).show( );
-                    progressBar.setVisibility(View.INVISIBLE);
+//                    progressBar.setVisibility(View.INVISIBLE);
                 });
     }
 }

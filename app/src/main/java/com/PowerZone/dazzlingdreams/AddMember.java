@@ -131,11 +131,12 @@ public class AddMember extends AppCompatActivity {
         ImgButton.setOnClickListener( new View.OnClickListener( ) {
             @Override
             public void onClick (View v) {
-                ImagePicker.with(AddMember.this)
-                        .crop()	    			//Crop image(Optional), Check Customization for more option
-                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
-                        .start();
+//                ImagePicker.with(AddMember.this)
+//                        .crop()	    			//Crop image(Optional), Check Customization for more option
+//                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
+//                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+//                        .start();
+                Toast.makeText(AddMember.this, "Currently Disabled By Admin", Toast.LENGTH_SHORT).show();
             }
         } );
 
@@ -180,7 +181,7 @@ public class AddMember extends AppCompatActivity {
 
     void ShowAlertDialog(String msg){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder( this);
-        alertDialogBuilder.setTitle("Confirmation");
+        alertDialogBuilder.setTitle("Confirmation ?");
         alertDialogBuilder.setCancelable(false);
         alertDialogBuilder.setMessage(msg);
         alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -189,8 +190,6 @@ public class AddMember extends AppCompatActivity {
 
                 ProgressBar progressBar = findViewById(R.id.progressBar);
                 progressBar.setVisibility(View.VISIBLE);
-
-
 //              ADDING USER TO GYM DATA
                 Map<String, Object> user_object = new HashMap<>();
                     user_object.put("UserName",UserName);
@@ -212,7 +211,7 @@ public class AddMember extends AppCompatActivity {
                         .collection("ClientData").document(UserName)
                         .set(user_object)
                         .addOnSuccessListener(documentReference -> {
-                            Toast.makeText( AddMember.this, "Data Added Successfully", Toast.LENGTH_SHORT ).show( );
+                            Toast.makeText( AddMember.this, "User Added Successfully", Toast.LENGTH_SHORT ).show( );
                             progressBar.setVisibility(View.INVISIBLE);
                             Intent intent = new Intent(AddMember.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

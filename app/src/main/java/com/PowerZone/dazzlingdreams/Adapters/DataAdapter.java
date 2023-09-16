@@ -1,17 +1,23 @@
 package com.PowerZone.dazzlingdreams.Adapters;
 
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.PowerZone.dazzlingdreams.DetailActivity;
+import com.PowerZone.dazzlingdreams.HelperActivity;
+import com.PowerZone.dazzlingdreams.MainActivity;
 import com.PowerZone.dazzlingdreams.Models.DataModel;
 import com.PowerZone.dazzlingdreams.R;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.myviewholder> {
 
@@ -30,7 +36,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.myviewholder> 
 
     @Override
     public void onBindViewHolder (@NonNull DataAdapter.myviewholder holder, int position) {
-        holder.UserName.setText(datalist.get(position).getUserName());
+        String uname = datalist.get(position).getUserName();
+        holder.UserName.setText(uname);
         holder.UserMobile.setText(datalist.get(position).getUserMobile());
         String[] st_date = datalist.get( position).getUserStartDate().split( "-");
         String[] en_date = datalist.get( position).getUserEndDate().split( "-");
@@ -41,14 +48,40 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.myviewholder> 
         holder.userplan.setText(datalist.get(position).getUserplan());
         holder.bal.setText("Bal :"+datalist.get(position).getBalanceAmount());
 
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                ///////////////////////////////////////
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                builder.setMessage("Are You Sure you want to Delete "+uname.toUpperCase() +" From Membership ?\n Once You Delete You Wont Be Able To Retrieve The Member");
+                builder.setTitle("Confirm Deletion ?");
 
+                builder.setCancelable(false);
 
+                builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    HelperActivity.deleteuserfromdatabase(uname);
+                });
 
+                builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    dialog.cancel();
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return false;
+            }
+        });
     }
 
     @Override
     public int getItemCount ( ) {
         return datalist.size();
+    }
+
+    public void updateData(List<DataModel> searchResults) {
+        datalist.clear();
+        datalist.addAll(searchResults);
+        notifyDataSetChanged();
     }
 
     public class myviewholder extends RecyclerView.ViewHolder {

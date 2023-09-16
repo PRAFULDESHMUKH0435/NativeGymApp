@@ -49,9 +49,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/background"
-            android:drawableLeft="@drawable/baseline_remove_red_eye_24"
+            android:drawableLeft="@drawable/baseline_phone_24"
             android:hint="Enter Mobile Number"
-            android:inputType="textPassword"
+            android:inputType="phone"
             android:padding="8dp"
             android:textAlignment="center"
             android:textColorHint="#000" />
