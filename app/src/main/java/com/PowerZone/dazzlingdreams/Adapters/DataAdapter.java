@@ -60,6 +60,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.myviewholder> 
 
                 builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
                     HelperActivity.deleteuserfromdatabase(uname);
+                    updateData(datalist);
                 });
 
                 builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
@@ -79,8 +80,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.myviewholder> 
     }
 
     public void updateData(List<DataModel> searchResults) {
-        datalist.clear();
-        datalist.addAll(searchResults);
+//        datalist.clear();
+//        datalist.addAll(searchResults);
         notifyDataSetChanged();
     }
 

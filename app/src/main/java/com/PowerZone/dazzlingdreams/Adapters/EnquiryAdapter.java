@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.PowerZone.dazzlingdreams.AddEnquiry;
 import com.PowerZone.dazzlingdreams.AddMember;
+import com.PowerZone.dazzlingdreams.HelperActivity;
 import com.PowerZone.dazzlingdreams.MainActivity;
 import com.PowerZone.dazzlingdreams.Models.EnquiryModel;
 import com.PowerZone.dazzlingdreams.R;
@@ -53,6 +54,30 @@ public class EnquiryAdapter extends RecyclerView.Adapter<EnquiryAdapter.myviewho
                 intent.putExtra("uname",enquirylist.get(position).getUserName());
                 intent.putExtra("umobile", enquirylist.get(position).getUserMobile());
                 context.startActivity(intent);
+            }
+        });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                ///////////////////////////////////////
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                    builder.setMessage("Are You Sure you want to Delete "+enquirylist.get(position).getUserName().toUpperCase() +" From Enquiry List ?\n Once You Delete You Wont Be Able To Retrieve The Member");
+                builder.setTitle("Confirm Deletion ?");
+
+                builder.setCancelable(false);
+
+                builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    HelperActivity.deleteuserenquiryfromdatabase(enquirylist.get(position).getUserName());
+                });
+
+                builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    dialog.cancel();
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return false;
             }
         });
     }

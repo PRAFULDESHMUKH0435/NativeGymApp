@@ -35,7 +35,7 @@ public class ShowMembers extends AppCompatActivity {
     RecyclerView recview;
     ArrayList<DataModel> datalist;
     FirebaseFirestore db;
-    DataAdapter adapter;
+    static DataAdapter adapter;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -68,9 +68,7 @@ public class ShowMembers extends AppCompatActivity {
                         adapter.notifyDataSetChanged();
                         progressBar.setVisibility( View.INVISIBLE);
                     }
-                });
-
-
+        });
 
 
 
@@ -114,7 +112,7 @@ public class ShowMembers extends AppCompatActivity {
                         }
 
                         // Update your RecyclerView adapter with searchResults
-                        adapter.notifyDataSetChanged();
+//                        adapter.notifyDataSetChanged();
                         adapter = new DataAdapter(datalist);
                         adapter.notifyDataSetChanged();
                         adapter.updateData(searchResults);
