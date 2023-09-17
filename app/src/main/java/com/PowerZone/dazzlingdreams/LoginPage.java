@@ -2,9 +2,7 @@ package com.PowerZone.dazzlingdreams;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +14,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 public class LoginPage extends AppCompatActivity {
-    Button createaccount,Loginbtn;
+    Button Loginbtn;
     FirebaseUser auth;
 
     @Override
@@ -25,7 +23,7 @@ public class LoginPage extends AppCompatActivity {
         setContentView( R.layout.activity_login_page );
 
         auth = FirebaseAuth.getInstance().getCurrentUser();
-        Objects.requireNonNull( getSupportActionBar( ) ).setTitle( "Login Page");
+        Objects.requireNonNull(getSupportActionBar()).setTitle( "Login Page");
 
         EditText username = findViewById(R.id.username);
         EditText password = findViewById(R.id.password);
