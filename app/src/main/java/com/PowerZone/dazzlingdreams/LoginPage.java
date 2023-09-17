@@ -33,18 +33,17 @@ public class LoginPage extends AppCompatActivity {
         Loginbtn.setOnClickListener( new View.OnClickListener( ) {
             @Override
             public void onClick (View v) {
-                startActivity(new Intent(LoginPage.this,MainActivity.class));
-//                if (username.getText().toString().isEmpty()){
-//                    username.setError("Required");
-//                }else if (password.getText().toString().isEmpty()){
-//                    password.setError("Required");
-//                }else {
-//                    if (username.getText().toString().equals("test") && password.getText().toString().equals("test")){
-//                        startActivity( new Intent(LoginPage.this,MainActivity.class) );
-//                    }else {
-//                        Toast.makeText(LoginPage.this, "Invalid Username Or Password", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
+                if (username.getText().toString().isEmpty()){
+                    username.setError("Required");
+                }else if (password.getText().toString().isEmpty()){
+                    password.setError("Required");
+                }else {
+                    if (username.getText().toString().equals("test") && password.getText().toString().equals("test")){
+                        startActivity( new Intent(LoginPage.this,MainActivity.class) );
+                    }else {
+                        Toast.makeText(LoginPage.this, "Invalid Username Or Password", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         } );
     }
