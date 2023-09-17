@@ -45,7 +45,16 @@ public class EnquiryAdapter extends RecyclerView.Adapter<EnquiryAdapter.myviewho
     public void onBindViewHolder(@NonNull EnquiryAdapter.myviewholder holder, int position) {
         holder.UserName.setText(enquirylist.get(position).getUserName());
         holder.UserMobile.setText(enquirylist.get(position).getUserMobile());
-
+        holder.btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                Intent intent = new Intent(context, AddMember.class);
+                intent.putExtra("uname",enquirylist.get(position).getUserName());
+                intent.putExtra("umobile", enquirylist.get(position).getUserMobile());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

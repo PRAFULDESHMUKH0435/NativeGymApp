@@ -40,6 +40,7 @@ public class AddMember extends AppCompatActivity {
     String []plans = {"Monthly","Monthly (Cardio +Strength)","Quarterly","Quarterly (Cardio +Strength)","Half Yearly","Half Yearly (Cardio +Strength)","Yearly","Yearly (Cardio +Strength)"};
     String plan ="", start_date="" ,end_date="",UserName="",UserWeight="",UserMobile="",Total_amount ="",Paid_amount="",gymname="";
     ArrayAdapter<String> adapteritems;
+    String namedata,numberdata;
 
     private FirebaseFirestore db;
     private FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -48,6 +49,15 @@ public class AddMember extends AppCompatActivity {
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_add_member );
+
+
+        if (getIntent().hasExtra("uname")) {
+             namedata = getIntent().getStringExtra("uname");
+        }
+
+        if (getIntent().hasExtra("umobile")) {
+            numberdata = getIntent().getStringExtra("umobile");
+        }
 
         getSupportActionBar().setTitle("Register Member");
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -121,7 +131,6 @@ public class AddMember extends AppCompatActivity {
                                 EndDateBtn.setText(dayOfMonth + "-" + (end_month) + "-" + year);
                             }
                         },
-
                         year, month, day);
                 datePickerDialog.show();
             }
@@ -146,11 +155,10 @@ public class AddMember extends AppCompatActivity {
             @Override
             public void onClick (View v) {
                  UserName= username.getText().toString().trim();
-                 UserWeight= userweight.getText().toString().trim();
                  UserMobile= usermobno.getText().toString().trim();
+                 UserWeight= userweight.getText().toString().trim();
                  Total_amount = total_Amount.getText().toString().trim();
                  Paid_amount = paid_Amount.getText().toString().trim();
-
                  gymname = "FitnessStar";
                  if (TextUtils.isEmpty(UserName)) {
                      username.setError("Required");

@@ -1,118 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/purple_500"
-    tools:context="com.PowerZone.dazzlingdreams.ContactUs">
+    android:background="@color/purple_700"
+    android:layout_centerInParent="true"
+    android:padding="16dp">
 
+    <!-- Profile Picture -->
     <LinearLayout
-        android:id="@+id/linear_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="12dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/image"
+        android:contentDescription="User Image " />
 
-        <EditText
-            android:id="@+id/addmessage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="Enter Message To All Your Gym Members and Send Them Just By Hitting That Send Button... "
-            android:inputType="textMultiLine"
-            android:lines="4"
-            android:padding="8dp"
-            android:textStyle="bold" />
+    <!-- Name -->
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gym Owner Name "
+        android:textSize="@dimen/_25sdp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp" />
 
-        <Button
-            android:id="@+id/sendmessage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:backgroundTint="#000"
-            android:text="Send Message"
-            android:textColor="#FFFFFF" />
+    <!-- Mobile Number -->
+    <TextView
+        android:id="@+id/mobileNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mobile: **********"
+        android:textSize="@dimen/_16sdp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp" />
+
+    <!-- Address -->
+    <TextView
+        android:id="@+id/addressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address: Gym Address"
+        android:textSize="@dimen/_16sdp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp" />
+
+    <!-- Email Address -->
+    <TextView
+        android:id="@+id/emailAddressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:useremail@gmail.com"
+        android:textSize="@dimen/_16sdp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp" />
+
+    <!-- Age -->
+    <TextView
+        android:id="@+id/gymnameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gym Name : Gym Name "
+        android:textSize="@dimen/_16sdp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp" />
 
     </LinearLayout>
 
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linear_ll"
-        android:layout_margin="15dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="12dp"
-        android:background="@color/white"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
+        android:layout_marginBottom="@dimen/_8sdp">
 
         <LinearLayout
-            android:id="@+id/bottom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@drawable/background"
-            android:backgroundTint="@color/backgroundcolour"
-            android:orientation="horizontal">
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:background="#E91E63"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/textView3"
+
+            <ImageView
+                android:id="@+id/developer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:background="#ffffff"
                 android:layout_weight="1"
-                android:padding="5dp"
-                android:text="Designed &amp; Developed By"
-                android:textStyle="bold" />
+                android:layout_margin="8dp"
+                android:src="@drawable/developer" />
 
-            <TextView
-                android:id="@+id/textView4"
+            <ImageView
+                android:id="@+id/excel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:drawableStart="@drawable/baseline_account_circle_24"
-                android:drawablePadding="5dp"
-                android:padding="5dp"
-                android:text="Praful Deshmukh"
-                android:textColor="#E91E63"
-                android:textStyle="bold|italic" />
+                android:scaleType="fitXY"
+                android:background="#4CAF50"
+                android:layout_margin="8dp"
+                android:src="@drawable/excel" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/bottom"
-            android:layout_margin="8dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/background"
-            android:backgroundTint="@color/backgroundcolour"
-            android:drawablePadding="8dp"
-            android:fontFamily="@font/aclonica"
-            android:padding="5dp"
-            android:text="Believe in your dreams, a better tomorrow is waiting for you!"
-            android:textColor="#E91E63"
-            android:textStyle="bold|italic" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
